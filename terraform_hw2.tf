@@ -19,7 +19,18 @@ resource "aws_vpc" "terraform-vpc" {
 
   tags = {
     "Name" = "${var.passingstring}-terraform-vpc"
+    owner = local.owner
   }
+}
+
+# Using locals, locals let us to operate something like to know the max of 2 numbers (max(3,5)), example owner = "nclouds-traning ${max(3,5)}"
+locals {
+  owner = "nclouds-training"
+}
+
+# Terraform Outputs, this is information that we want to export.
+output "terraform_vpc_id" {
+  value = aws_vpc.terraform-vpc.id
 }
 
 #Create a Internet Gateway
