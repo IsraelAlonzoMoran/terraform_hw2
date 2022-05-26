@@ -28,3 +28,12 @@ module "terraform_vpc_hw2" {
 
 
 # Calling the Autoscaling_Group_Module
+
+
+# Calling the Security Group Module
+module "terraform_sg_hw2" {
+  source = "./modules/sg_module"
+  terraform_vpc_id  = module.terraform_vpc_hw2.terraform_vpc_id
+  name = "terraform_sg_hw"
+  port = 8080
+}
