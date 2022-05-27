@@ -23,12 +23,26 @@ module "terraform_vpc_hw2" {
   private_subnet2_cidr  = "172.30.4.0/24"
   private_subnet3_cidr  = "172.30.5.0/24"
 }
-
+/*
 # Calling the Launch_Configuration_Module
-
-
+module "terraform_launch_configuration_hw2" {
+  source = "./modules/launch_configuration_module"
+  instance_type = "t2.micro"
+  terraform_sg_id = module.terraform_sg_hw2.terraform_sg_id
+}
+*/
 # Calling the Autoscaling_Group_Module
-
+module "terraform_autoscaling_group_hw2" {
+  source = "./modules/autoscaling_group_module"
+  aws_region = "us-west-2"
+  terraform-availability-zones = "us-west-2a, us-west-2b, us-west-2c"
+  instance_type = "t2.micro"
+  terraform-private-subnet-1_id = module.terraform_vpc_hw2.terraform-private-subnet-1_id
+  terraform-private-subnet-2_id = module.terraform_vpc_hw2.terraform-private-subnet-2_id
+  terraform-private-subnet-3_id = module.terraform_vpc_hw2.terraform-private-subnet-3_id
+  terraform-allow-tls = module.terraform_sg_hw2.terraform-allow-tls
+  #terraform_lc_id = module.terraform_launch_configuration_hw2.terraform_lc_id
+}
 
 # Calling the Security Group Module
 module "terraform_sg_hw2" {

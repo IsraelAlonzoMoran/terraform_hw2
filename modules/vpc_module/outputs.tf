@@ -30,4 +30,10 @@ output "terraform-private-subnet-1_id" {
   value = aws_subnet.terraform-private-subnet-1.id
 }
 
+output "terraform-private-subnet-2_id" {
+  value = aws_subnet.terraform-private-subnet-2.id
+}
 
+output "terraform-private-subnet-3_id" {
+  value = aws_subnet.terraform-private-subnet-2.id
+}
