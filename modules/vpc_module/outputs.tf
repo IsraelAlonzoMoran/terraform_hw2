@@ -1,4 +1,4 @@
-# Terraform Outputs, this is information that we want to export.
+# Terraform outputs, this is information that we want to export. Can be used as variable in other modules as well.
 output "terraform_vpc_id" {
   value = aws_vpc.terraform-vpc.id
 }
@@ -35,5 +35,5 @@ output "terraform-private-subnet-2_id" {
 }
 
 output "terraform-private-subnet-3_id" {
-  value = aws_subnet.terraform-private-subnet-2.id
+  value = aws_subnet.terraform-private-subnet-3.id
 }

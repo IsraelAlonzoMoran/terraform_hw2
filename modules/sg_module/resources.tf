@@ -1,10 +1,9 @@
+#Here we have the security group, we are using here 2 variables for the ingress ports
 resource "aws_security_group" "terraform-allow-tls" {
 
     name = var.name
     vpc_id = var.terraform_vpc_id
   
-
-
 ingress {
         description = "tls for VPC"
         from_port   = var.port

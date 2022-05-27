@@ -1,21 +1,5 @@
-variable aws_region { default = "us-west-2" }
-
-variable "terraform-availability-zones" {
-    default = {
-        us-west-2 = "us-west-2a, us-west-2b, us-west-2c"
-    }
-  
-}
-/*
-variable "terraform_lc_id" {
-  type = string
-}
+/*Here we have the variables for the autoscaling group
 */
-variable "instance_type" {
-    type = string
-    description = "EC2 instance type for the terraform aws launch template"
-    default = "t2.micro"
-}
 
 variable "terraform-private-subnet-1_id" {
   type = string
@@ -32,8 +16,10 @@ variable "terraform-private-subnet-3_id" {
   
 }
 
-variable "terraform-allow-tls" {
-  
+/*This is the variable we required to be able to use the launch-configuration for the autoscaling group
+to be able to launch automatically the EC2 instances
+*/
+variable "terraform-launch-configuration" {
   type = string
 
 }

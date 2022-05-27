@@ -1,4 +1,6 @@
-# Terraform Outputs, this is information that we want to export.
-output "terraform_lc_id" {
-  value = aws_launch_configuration.terraform-launch-configuration.id
+/*Terraform outputs, here we are adding "terraform-launch-configuration.name", using .name cause
+this is what the autoscaling group needs to recognize the lunch-configuration that we have here.
+*/
+output "terraform-launch-configuration" {
+  value = aws_launch_configuration.terraform-launch-configuration.name
 }
