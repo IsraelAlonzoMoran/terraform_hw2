@@ -1,6 +1,6 @@
 # Terraform Homework 2
 ## Description: 
-### In this homework 2 we are going to create the below infrastructure as a code using Terraform and AWS as a provider.
+#### In this homework 2 we are going to create the below infrastructure as a code using Terraform and AWS as a provider.
 ## Terraform Template
 *  VPC Module
 * - VPC
@@ -96,7 +96,7 @@ module "terraform_sg_hw2" {
 ```
 #
 ## VPC Module
-#
+
 In the vpc_module you are going to find the Terraform code to create an AWS VPC, internet_gateway, 3 public subnets, 3 private subnets, 2 RouteTables (1 public and 1 private), an Elastic IP, NAT Gateway and the respective associations between the resources.
 
 For example in the vpc_modue(resources.tf), in this file, you are going to find the Terraform code that was used to create the AWS VPC. In this example "terraform-vpc" is the name that is been used as the VPC id, if you want to reference the VPC by the id, "terraform-pvc" needs to be used, this can be any other name/words you would like to add there, make sure to add a cidr_block, in this case, we are using a variable called "vpc_cidr", the variable is in the same vpc_module, when using variables make sure to include var.(follow by the variable name as showing below). You can also include tags for the VPC, here the tag is "israel-terraform-vpc", can be any other name, also as described below this is how you enable dns_support and dns_hostname for the VPC.
@@ -181,7 +181,7 @@ output "terraform-allow-tls" {
 ```
 #
 ## Launch configuration Module
-#
+
 In the launch_configuration_module you are going to find the Terraform code that is required by the Autoscaling group module to be able to launch EC2 instances.
 
 Below we have 2 variables, 1 to indicate the instance type and the other to be able to use the security group from the module called "sg_module".
@@ -224,7 +224,7 @@ output "terraform-launch-configuration" {
 ```
 #
 ## Autoscaling group Module
-#
+
 
 Here we have the Autoscaling_Group, the variable called "var.terraform-launch-configuration" allow to use the launch-configuration that we have in the other module called  "launch_configuration_module" but, to be able to use it we need to add "terraform-launch-configuration" as variable in this module, variable as type string, here we are also using 3 variables; 1 for each private subnets from the VPC we have in the module called "vpc_module".
 
