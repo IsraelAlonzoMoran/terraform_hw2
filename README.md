@@ -1,4 +1,4 @@
-# Terraform Homework 2
+## Terraform Homework 2
 ## Description: 
 #### In this homework 2 we are going to create the below infrastructure as a code using Terraform and AWS as a provider.
 ## Terraform Template
@@ -14,8 +14,8 @@
 - Autoscaling Group Module
 - Security Group Module
 
-### The Terraform template has the following structure.
-### Project name "TERRAFORM_HW2" inside of it a folder called modules.
+#### The Terraform template has the following structure.
+#### Project name "TERRAFORM_HW2" inside of it a folder called modules.
 * modules
 * *  vpc_module
 * * - outputs.tf
@@ -180,7 +180,7 @@ output "terraform-allow-tls" {
 }
 ```
 #
-## Launch configuration Module
+## Launch Configuration Module
 
 In the launch_configuration_module you are going to find the Terraform code that is required by the Autoscaling group module to be able to launch EC2 instances.
 
@@ -223,7 +223,7 @@ output "terraform-launch-configuration" {
 
 ```
 #
-## Autoscaling group Module
+## Autoscaling Group Module
 
 
 Here we have the Autoscaling_Group, the variable called "var.terraform-launch-configuration" allow to use the launch-configuration that we have in the other module called  "launch_configuration_module" but, to be able to use it we need to add "terraform-launch-configuration" as variable in this module, variable as type string, here we are also using 3 variables; 1 for each private subnets from the VPC we have in the module called "vpc_module".
