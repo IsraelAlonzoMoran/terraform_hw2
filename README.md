@@ -103,7 +103,8 @@ For example in the vpc_modue(resources.tf), in this file, you are going to find 
 ```bash
 # This code needs to be in the vpc_module(resources.tf)
 # Terraform resources, to Create a AWS VPC
-# The cidr_block value is defined in the project main file called "terraform-hw2.tf", this main file is pasing the value to the variable defined in vpc_module(variables.tf).
+# The cidr_block value is defined in the project main file called "terraform-hw2.tf",
+# this main file is pasing the value to the variable defined in vpc_module(variables.tf).
 resource "aws_vpc" "terraform-vpc" {
     
   cidr_block = var.vpc_cidr
@@ -151,7 +152,10 @@ resource "aws_security_group" "terraform-allow-tls" {
     #As shown here we can use the variable we have in sg_module(variables.tf), var.terraform_vpc_id.
     vpc_id = var.terraform_vpc_id
 
- # Using variables for the ports, these variables need to be declared in the variables.tf file of this same sg_module, and the values can be in the main project directory file called "terraform_hw2.tf" when calling all modules.  The cidr_blocks = ["0.0.0.0/0"] can be customized for the ingress and egress as needed in this project we are not adding restrictions but can be added.
+ # Using variables for the ports, these variables need to be declared in the variables.tf file
+ # of this same sg_module, and the values can be in the main project directory file called "terraform_hw2.tf"
+ # when calling all modules.  The cidr_blocks = ["0.0.0.0/0"] can be customized for the ingress and egress
+ # as needed in this project we are not adding restrictions but can be added.
 ingress {
         description = "tls for VPC"
         from_port   = var.port
@@ -231,7 +235,8 @@ Here we have the Autoscaling_Group, the variable called "var.terraform-launch-co
 Here in the variables.tf file we have the variables for the autoscaling group.
 
 ```bash
-#This is the variable we need to be able to use the launch-configuration for the autoscaling group to be able to launch automatically the EC2 instances in any of the 3 private subnets.
+#This is the variable we need to be able to use the launch-configuration for the autoscaling group
+#to be able to launch automatically the EC2 instances in any of the 3 private subnets.
 variable "terraform-launch-configuration" {
   type = string
 
